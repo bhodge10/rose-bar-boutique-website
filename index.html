@@ -113,6 +113,7 @@
       box-shadow: 0 2px 40px rgba(114, 47, 55, 0.08);
     }
     nav .container {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -130,9 +131,12 @@
     nav.scrolled .nav-logo { color: var(--wine-deep); }
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 1.75rem;
       list-style: none;
       align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .nav-links a {
       font-family: var(--font-body);
@@ -167,6 +171,7 @@
       border: 1px solid var(--gold) !important;
       color: var(--gold) !important;
       transition: all 0.3s ease !important;
+      white-space: nowrap;
     }
     .nav-cta:hover {
       background: var(--gold) !important;
@@ -1048,6 +1053,7 @@
         top: 100%;
         left: 0;
         right: 0;
+        transform: none;
         background: var(--cream);
         flex-direction: column;
         padding: 2rem;
@@ -1112,6 +1118,7 @@
         <li><a href="#wine">Wine</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#visit" class="nav-cta">Plan Your Visit</a></li>
+        <li><a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar" target="_blank" rel="noopener" class="nav-cta">Make a Reservation</a></li>
       </ul>
     </div>
   </nav>
@@ -1336,46 +1343,46 @@
       <div class="events-grid">
         <div class="event-card reveal">
           <div class="event-date">
-            <span class="month">Monthly</span>
-            <span class="day">—</span>
+            <span class="month">Sat · May</span>
+            <span class="day">2</span>
           </div>
           <div class="event-info">
-            <h4>Wine &amp; Pizza Pairing Nights</h4>
-            <p>Our most popular event — hand-selected wines paired with artisan pizzas. Each pairing is crafted to highlight unique flavor profiles.</p>
-            <span class="event-tag">Tasting Event</span>
+            <h4>Run for the Rosé — Kentucky Derby Party</h4>
+            <p>4:00 PM – 10:00 PM. Live music, drink specials, boutique deals, and Bourbon meatballs.</p>
+            <span class="event-tag">Derby Party</span>
           </div>
         </div>
         <div class="event-card reveal reveal-delay-1">
           <div class="event-date">
-            <span class="month">Seasonal</span>
-            <span class="day">—</span>
+            <span class="month">Thur · May</span>
+            <span class="day">7</span>
           </div>
           <div class="event-info">
-            <h4>Hallo-Wine &amp; Holiday Tastings</h4>
-            <p>Seasonal celebrations with themed flights, special menus, and festive energy. Past favorites include our Hallo-wine tasting and holiday pop-ups.</p>
-            <span class="event-tag">Seasonal Special</span>
+            <h4>Wine Club Pick-Up Day</h4>
+            <p>4:00 PM – 9:00 PM. Free wine flights for wine club members.</p>
+            <span class="event-tag">Wine Club</span>
           </div>
         </div>
         <div class="event-card reveal reveal-delay-2">
           <div class="event-date">
-            <span class="month">Weekly</span>
-            <span class="day">—</span>
+            <span class="month">Sun · May</span>
+            <span class="day">10</span>
           </div>
           <div class="event-info">
-            <h4>Girls' Night at Rosé</h4>
-            <p>Grab your crew. Shop the boutique, share a charcuterie board, and work your way through our "For the Girls" flight. This is the excuse you've been looking for.</p>
-            <span class="event-tag">Recurring</span>
+            <h4>Mom's Day at Rosé: Sip, Shop &amp; Celebrate</h4>
+            <p>12:00 PM – 5:00 PM. Stay tuned for specials!</p>
+            <span class="event-tag">Mother's Day</span>
           </div>
         </div>
         <div class="event-card reveal reveal-delay-3">
           <div class="event-date">
-            <span class="month">Ongoing</span>
-            <span class="day">—</span>
+            <span class="month">Mon · May</span>
+            <span class="day">11</span>
           </div>
           <div class="event-info">
-            <h4>Private Events &amp; Parties</h4>
-            <p>Planning something special? We love hosting bridal showers, birthdays, and intimate gatherings. Reach out to discuss your vision.</p>
-            <span class="event-tag">Book Now</span>
+            <h4>Sip &amp; Pour for Hope — Wine Tasting</h4>
+            <p>7:00 PM – 9:00 PM. Proceeds support the Ben Morrison Fund.</p>
+            <span class="event-tag">Charity Tasting</span>
           </div>
         </div>
       </div>
@@ -1421,6 +1428,9 @@
             <span class="hours-time">Closed</span>
           </div>
           <p style="font-size:0.78rem; color:var(--light-gray); margin-top:1rem; font-style:italic;">Hours may vary for special events. Check our Instagram for updates.</p>
+          <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar" target="_blank" rel="noopener" class="btn btn-primary" style="display:block; text-align:center; width:100%; background:var(--wine); color:var(--white); margin-top:2rem;">
+            Make a Reservation
+          </a>
         </div>
         <div class="visit-card reveal reveal-delay-1">
           <h3>Location</h3>
@@ -1545,6 +1555,20 @@
         }
       });
     });
+  </script>
+
+  <!-- Resy reservation modal -->
+  <script src="https://widgets.resy.com/embed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('a[href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar"]');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function(e) {
+          e.preventDefault();
+          resyWidget.openModal({"venueId": 95040, "apiKey": "L8GaMnHU8EZo3So47rkiDAemdwtMhR4v", "replace": "true"});
+        }, false);
+      }
+    }, false);
   </script>
 
 </body>
