@@ -1,0 +1,299 @@
+<section class="wine-cellar" id="wine-cellar-selection">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+    .wine-cellar {
+      --rose-ink: #2b2727;
+      --rose-muted: #7b7070;
+      --rose-blush: #b85b76;
+      --rose-soft: #f8f2f1;
+      --rose-border: #eadcda;
+      --rose-gold: #b28a55;
+      background: #fff;
+      color: var(--rose-ink);
+      padding: clamp(56px, 8vw, 104px) 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .wine-cellar * { box-sizing: border-box; }
+
+    .wine-cellar__wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .wine-cellar__eyebrow {
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose-blush);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .wine-cellar h2,
+    .wine-cellar h3,
+    .wine-cellar h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    .wine-cellar h2 {
+      text-align: center;
+      font-size: clamp(2.9rem, 7vw, 6rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
+
+    .wine-cellar__intro {
+      max-width: 720px;
+      margin: 0 auto 54px;
+      text-align: center;
+      color: var(--rose-muted);
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .wine-cellar__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .wine-section {
+      border: 1px solid var(--rose-border);
+      background: linear-gradient(180deg, #fff 0%, var(--rose-soft) 100%);
+      padding: clamp(26px, 3vw, 40px);
+      border-radius: 26px;
+    }
+
+    .wine-section--wide { grid-column: 1 / -1; }
+
+    .wine-section__kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .wine-section h3 {
+      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      margin-bottom: 8px;
+    }
+
+    .wine-section__note {
+      color: var(--rose-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin: 0 0 24px;
+      font-weight: 300;
+    }
+
+    .wine-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 13px;
+    }
+
+    .wine-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(234, 220, 218, 0.8);
+      padding-bottom: 11px;
+    }
+
+    .wine-name {
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      font-weight: 500;
+    }
+
+    .wine-place {
+      color: var(--rose-muted);
+      font-size: 0.82rem;
+      text-align: right;
+      font-weight: 300;
+    }
+
+    .flight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .flight-card {
+      background: #fff;
+      border: 1px solid var(--rose-border);
+      border-radius: 22px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .flight-card h4 {
+      color: var(--rose-blush);
+      font-size: 1.55rem;
+      margin-bottom: 12px;
+    }
+
+    .flight-card p {
+      margin: 0;
+      color: var(--rose-muted);
+      font-size: 0.86rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .wine-cellar__experience {
+      margin-top: 30px;
+      padding: clamp(28px, 4vw, 44px);
+      border-radius: 28px;
+      background: var(--rose-ink);
+      color: #fff;
+      text-align: center;
+    }
+
+    .wine-cellar__experience h3 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      margin-bottom: 12px;
+    }
+
+    .wine-cellar__experience p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    @media (max-width: 860px) {
+      .wine-cellar__grid,
+      .flight-grid { grid-template-columns: 1fr; }
+      .wine-list li { grid-template-columns: 1fr; gap: 4px; }
+      .wine-place { text-align: left; }
+    }
+  </style>
+
+  <div class="wine-cellar__wrap">
+    <div class="wine-cellar__eyebrow">Rosé Boutique & Wine Bar</div>
+    <h2>Wine Cellar Selection</h2>
+    <p class="wine-cellar__intro">
+      A curated collection of sparkling, white, rosé, orange, and red wines selected for balance, approachability, and a sense of place.
+    </p>
+
+    <div class="wine-cellar__grid">
+      <article class="wine-section">
+        <div class="wine-section__kicker">Bright · Celebratory · Fresh</div>
+        <h3>Sparkling</h3>
+        <p class="wine-section__note">From crisp Italian bubbles to Oregon sparkling rosé.</p>
+        <ul class="wine-list">
+          <li><span class="wine-name">Ca’ Furlan Prosecco</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">Bellino Prosecco</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">Pike Road Sparkling Rosé</span><span class="wine-place">Oregon</span></li>
+          <li><span class="wine-name">Ca’ Furlan Prosecco Rosé</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">Dom Pierre Sparkling Brut</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Mimosa</span><span class="wine-place">House Favorite</span></li>
+          <li><span class="wine-name">Aperol Spritz</span><span class="wine-place">Classic Spritz</span></li>
+          <li><span class="wine-name">Seasonal Wine Cocktail</span><span class="wine-place">Ask Your Server</span></li>
+        </ul>
+      </article>
+
+      <article class="wine-section">
+        <div class="wine-section__kicker">Rosé · Skin Contact · Global</div>
+        <h3>Rosé & Orange</h3>
+        <p class="wine-section__note">Elegant pinks, refreshing coastal styles, and one orange wine with personality.</p>
+        <ul class="wine-list">
+          <li><span class="wine-name">From the Tank</span><span class="wine-place">Rhône, France</span></li>
+          <li><span class="wine-name">Scarpetta</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">House of Brown</span><span class="wine-place">Napa, California</span></li>
+          <li><span class="wine-name">Gateway Vinho Verde</span><span class="wine-place">Portugal</span></li>
+          <li><span class="wine-name">Semeli Estate Mountain Sun</span><span class="wine-place">Greece</span></li>
+          <li><span class="wine-name">Bodegas Muga Rioja Rosado</span><span class="wine-place">Spain</span></li>
+          <li><span class="wine-name">Honoro Vera Rosé Jumilla</span><span class="wine-place">Spain</span></li>
+          <li><span class="wine-name">Früg Orange</span><span class="wine-place">Austria</span></li>
+        </ul>
+      </article>
+
+      <article class="wine-section">
+        <div class="wine-section__kicker">Crisp · Aromatic · Textural</div>
+        <h3>White Wines</h3>
+        <p class="wine-section__note">A collection ranging from mineral-driven and refreshing to round and expressive.</p>
+        <ul class="wine-list">
+          <li><span class="wine-name">Boca Barrel Pinot Grigio</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">Primosole Organic Pinot Grigio</span><span class="wine-place">Italy</span></li>
+          <li><span class="wine-name">Frisk Prickly Pear Riesling</span><span class="wine-place">Australia</span></li>
+          <li><span class="wine-name">Massey Dacta Sauvignon Blanc</span><span class="wine-place">New Zealand</span></li>
+          <li><span class="wine-name">Gateway Vinho Verde</span><span class="wine-place">Portugal</span></li>
+          <li><span class="wine-name">House of Brown Sauvignon Blanc</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Graziano Chenin Blanc</span><span class="wine-place">Mendocino, California</span></li>
+          <li><span class="wine-name">Kind Stranger Pinot Gris</span><span class="wine-place">Columbia Valley</span></li>
+          <li><span class="wine-name">House of Brown Chardonnay</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Pike Road Wines Chardonnay</span><span class="wine-place">Willamette Valley</span></li>
+          <li><span class="wine-name">Butterfield Station Chardonnay</span><span class="wine-place">California</span></li>
+        </ul>
+      </article>
+
+      <article class="wine-section">
+        <div class="wine-section__kicker">Structured · Smooth · Expressive</div>
+        <h3>Red Wines</h3>
+        <p class="wine-section__note">From bright Pinot Noir to layered Bordeaux, Tuscan classics, and bold Cabernet.</p>
+        <ul class="wine-list">
+          <li><span class="wine-name">Willamette Valley Vineyards Pinot Noir</span><span class="wine-place">Oregon</span></li>
+          <li><span class="wine-name">Château Grand Rousseau</span><span class="wine-place">Bordeaux, France</span></li>
+          <li><span class="wine-name">Iconic Wines Sidekick Merlot</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Predator Old Vine Zinfandel</span><span class="wine-place">Lodi, California</span></li>
+          <li><span class="wine-name">Trentadue “Old Patch Red” Blend</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Quilt Threadcount Red Blend</span><span class="wine-place">Napa, California</span></li>
+          <li><span class="wine-name">La Serra Chianti Colli Senesi</span><span class="wine-place">Tuscany, Italy</span></li>
+          <li><span class="wine-name">House of Brown Red Blend</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Domaine de la Solitude Rouge</span><span class="wine-place">Rhône, France</span></li>
+          <li><span class="wine-name">Areyna Malbec Lujan de Cuyo</span><span class="wine-place">Argentina</span></li>
+          <li><span class="wine-name">House of Brown Cabernet Sauvignon</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Highway 12 Cabernet Sauvignon</span><span class="wine-place">California</span></li>
+          <li><span class="wine-name">Dama Wines Cabernet Sauvignon Cowgirl</span><span class="wine-place">Washington</span></li>
+        </ul>
+      </article>
+
+      <article class="wine-section wine-section--wide">
+        <div class="wine-section__kicker">Four 2 oz Pours</div>
+        <h3>Curated Flight Experiences</h3>
+        <p class="wine-section__note">Explore our menu through themed flights designed to make choosing your next favorite pour simple and fun.</p>
+        <div class="flight-grid">
+          <div class="flight-card">
+            <h4>Rosé All Day</h4>
+            <p>Gateway Vinho Verde<br>House of Brown<br>Bodegas Muga Rioja Rosado<br>Honoro Vera Rosé Jumilla</p>
+          </div>
+          <div class="flight-card">
+            <h4>Totally for Girls</h4>
+            <p>Graziano Chenin Blanc<br>Pike Road Wines Chardonnay<br>House of Brown Rosé<br>Areyna Malbec Lujan de Cuyo</p>
+          </div>
+          <div class="flight-card">
+            <h4>Crimson Collection</h4>
+            <p>Iconic Wines Sidekick Merlot<br>La Serra Chianti Colli Senesi<br>Château Grand Rousseau<br>Areyna Malbec Lujan de Cuyo</p>
+          </div>
+          <div class="flight-card">
+            <h4>House of Brown Experience</h4>
+            <p>HOB Sauvignon Blanc<br>HOB Chardonnay<br>HOB Red Blend<br>HOB Cabernet Sauvignon</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="wine-cellar__experience">
+      <h3>Make Pour Decisions</h3>
+      <p>
+        Our state-of-the-art self-pour wine machines allow guests to explore wines in 1 oz, 3 oz, or 6 oz pours. Ask your server or bartender to get started. Most selections from the machines are also available for retail purchase.
+      </p>
+    </div>
+  </div>
+</section>
