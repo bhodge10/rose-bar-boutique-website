@@ -676,6 +676,234 @@
       color: var(--rose-light);
       font-weight: 300;
     }
+    button.wine-stat {
+      font-family: inherit;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+    button.wine-stat::after {
+      content: 'View Menu →';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.65;
+      transition: opacity 0.3s ease;
+    }
+    button.wine-stat:hover,
+    button.wine-stat:focus-visible {
+      background: rgba(201, 169, 110, 0.08);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    button.wine-stat:hover::after,
+    button.wine-stat:focus-visible::after { opacity: 1; }
+
+    /* Wine menu modal */
+    .wine-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(43, 39, 39, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4vh 20px;
+      overflow-y: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .wine-modal.open { display: flex; opacity: 1; }
+    .wine-modal__panel {
+      position: relative;
+      width: 100%;
+      max-width: 1120px;
+      background: var(--cream);
+      color: var(--wine-deep, #2b2727);
+      border-radius: 8px;
+      padding: clamp(36px, 5vw, 72px) clamp(20px, 4vw, 56px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+    .wine-modal__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 169, 110, 0.4);
+      background: var(--white);
+      color: var(--warm-gray);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .wine-modal__close:hover {
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+    .wine-modal__eyebrow {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .wine-modal__heading {
+      font-family: var(--font-display);
+      text-align: center;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      color: var(--wine-deep, #2b2727);
+    }
+    .wine-modal__heading em { color: var(--rose); font-style: italic; }
+    .wine-modal__intro {
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: var(--warm-gray);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .wine-modal__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+    .wine-section {
+      border: 1px solid rgba(196, 137, 138, 0.25);
+      background: linear-gradient(180deg, #fff 0%, #f8f2f1 100%);
+      padding: clamp(22px, 2.5vw, 36px);
+      border-radius: 6px;
+    }
+    .wine-section--wide { grid-column: 1 / -1; }
+    .wine-section__kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .wine-section h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      margin: 0 0 0.4rem;
+      color: var(--wine-deep, #2b2727);
+    }
+    .wine-section__note {
+      color: var(--warm-gray);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin: 0 0 1.4rem;
+      font-weight: 300;
+    }
+    .wine-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .wine-list li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(196, 137, 138, 0.18);
+      padding-bottom: 0.65rem;
+    }
+    .wine-list li:last-child { border-bottom: none; }
+    .wine-name {
+      font-size: 0.94rem;
+      font-weight: 400;
+      color: var(--wine-deep, #2b2727);
+    }
+    .wine-place {
+      color: var(--warm-gray);
+      font-size: 0.78rem;
+      text-align: right;
+      font-weight: 300;
+    }
+    .flight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .flight-card {
+      background: var(--white);
+      border: 1px solid rgba(196, 137, 138, 0.25);
+      border-radius: 6px;
+      padding: 1.4rem 1.1rem;
+      text-align: center;
+    }
+    .flight-card h4 {
+      font-family: var(--font-display);
+      color: var(--rose);
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 0 0 0.7rem;
+    }
+    .flight-card p {
+      margin: 0;
+      color: var(--warm-gray);
+      font-size: 0.82rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .wine-modal__footer {
+      margin-top: 2rem;
+      padding: clamp(22px, 3vw, 36px);
+      border-radius: 6px;
+      background: var(--wine-deep, #2b2727);
+      color: var(--white);
+      text-align: center;
+    }
+    .wine-modal__footer h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      margin: 0 0 0.6rem;
+    }
+    .wine-modal__footer p {
+      margin: 0 auto;
+      max-width: 720px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
+    body.wine-modal-open { overflow: hidden; }
+    @media (max-width: 860px) {
+      .wine-modal__grid,
+      .flight-grid { grid-template-columns: 1fr; }
+      .wine-list li { grid-template-columns: 1fr; gap: 0.2rem; }
+      .wine-place { text-align: left; }
+    }
     .wine-description {
       font-size: 1.02rem;
       line-height: 1.85;
@@ -1252,10 +1480,10 @@
             Our collection spans <strong>55+ wines</strong> from carefully selected local and international vineyards — each chosen to offer something memorable. Whether you prefer a crisp white, a bold red, or a delicate rosé, our knowledgeable staff will guide you to your perfect pour.
           </p>
           <div class="wine-stats reveal reveal-delay-3">
-            <div class="wine-stat">
+            <button type="button" class="wine-stat" data-open-wine-menu aria-haspopup="dialog" aria-controls="wine-menu-modal">
               <div class="wine-stat-number">55+</div>
               <div class="wine-stat-label">Wines on menu</div>
-            </div>
+            </button>
             <div class="wine-stat">
               <div class="wine-stat-number">16</div>
               <div class="wine-stat-label">Self-pour selections</div>
@@ -1552,6 +1780,151 @@
         }
       });
     });
+  </script>
+
+  <!-- Wine menu modal -->
+  <div class="wine-modal" id="wine-menu-modal" role="dialog" aria-modal="true" aria-labelledby="wine-menu-heading" hidden>
+    <div class="wine-modal__panel">
+      <button type="button" class="wine-modal__close" aria-label="Close wine menu" data-close-wine-menu>×</button>
+      <div class="wine-modal__eyebrow">Rosé Boutique &amp; Wine Bar</div>
+      <h2 class="wine-modal__heading" id="wine-menu-heading">Wine Cellar <em>Selection</em></h2>
+      <p class="wine-modal__intro">A curated collection of sparkling, white, rosé, orange, and red wines selected for balance, approachability, and a sense of place.</p>
+
+      <div class="wine-modal__grid">
+        <article class="wine-section">
+          <div class="wine-section__kicker">Bright · Celebratory · Fresh</div>
+          <h3>Sparkling</h3>
+          <p class="wine-section__note">From crisp Italian bubbles to Oregon sparkling rosé.</p>
+          <ul class="wine-list">
+            <li><span class="wine-name">Ca' Furlan Prosecco</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">Bellino Prosecco</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">Pike Road Sparkling Rosé</span><span class="wine-place">Oregon</span></li>
+            <li><span class="wine-name">Ca' Furlan Prosecco Rosé</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">Dom Pierre Sparkling Brut</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Mimosa</span><span class="wine-place">House Favorite</span></li>
+            <li><span class="wine-name">Aperol Spritz</span><span class="wine-place">Classic Spritz</span></li>
+            <li><span class="wine-name">Seasonal Wine Cocktail</span><span class="wine-place">Ask Your Server</span></li>
+          </ul>
+        </article>
+
+        <article class="wine-section">
+          <div class="wine-section__kicker">Rosé · Skin Contact · Global</div>
+          <h3>Rosé &amp; Orange</h3>
+          <p class="wine-section__note">Elegant pinks, refreshing coastal styles, and one orange wine with personality.</p>
+          <ul class="wine-list">
+            <li><span class="wine-name">From the Tank</span><span class="wine-place">Rhône, France</span></li>
+            <li><span class="wine-name">Scarpetta</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">House of Brown</span><span class="wine-place">Napa, California</span></li>
+            <li><span class="wine-name">Gateway Vinho Verde</span><span class="wine-place">Portugal</span></li>
+            <li><span class="wine-name">Semeli Estate Mountain Sun</span><span class="wine-place">Greece</span></li>
+            <li><span class="wine-name">Bodegas Muga Rioja Rosado</span><span class="wine-place">Spain</span></li>
+            <li><span class="wine-name">Honoro Vera Rosé Jumilla</span><span class="wine-place">Spain</span></li>
+            <li><span class="wine-name">Früg Orange</span><span class="wine-place">Austria</span></li>
+          </ul>
+        </article>
+
+        <article class="wine-section">
+          <div class="wine-section__kicker">Crisp · Aromatic · Textural</div>
+          <h3>White Wines</h3>
+          <p class="wine-section__note">A collection ranging from mineral-driven and refreshing to round and expressive.</p>
+          <ul class="wine-list">
+            <li><span class="wine-name">Boca Barrel Pinot Grigio</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">Primosole Organic Pinot Grigio</span><span class="wine-place">Italy</span></li>
+            <li><span class="wine-name">Frisk Prickly Pear Riesling</span><span class="wine-place">Australia</span></li>
+            <li><span class="wine-name">Massey Dacta Sauvignon Blanc</span><span class="wine-place">New Zealand</span></li>
+            <li><span class="wine-name">Gateway Vinho Verde</span><span class="wine-place">Portugal</span></li>
+            <li><span class="wine-name">House of Brown Sauvignon Blanc</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Graziano Chenin Blanc</span><span class="wine-place">Mendocino, California</span></li>
+            <li><span class="wine-name">Kind Stranger Pinot Gris</span><span class="wine-place">Columbia Valley</span></li>
+            <li><span class="wine-name">House of Brown Chardonnay</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Pike Road Wines Chardonnay</span><span class="wine-place">Willamette Valley</span></li>
+            <li><span class="wine-name">Butterfield Station Chardonnay</span><span class="wine-place">California</span></li>
+          </ul>
+        </article>
+
+        <article class="wine-section">
+          <div class="wine-section__kicker">Structured · Smooth · Expressive</div>
+          <h3>Red Wines</h3>
+          <p class="wine-section__note">From bright Pinot Noir to layered Bordeaux, Tuscan classics, and bold Cabernet.</p>
+          <ul class="wine-list">
+            <li><span class="wine-name">Willamette Valley Vineyards Pinot Noir</span><span class="wine-place">Oregon</span></li>
+            <li><span class="wine-name">Château Grand Rousseau</span><span class="wine-place">Bordeaux, France</span></li>
+            <li><span class="wine-name">Iconic Wines Sidekick Merlot</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Predator Old Vine Zinfandel</span><span class="wine-place">Lodi, California</span></li>
+            <li><span class="wine-name">Trentadue "Old Patch Red" Blend</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Quilt Threadcount Red Blend</span><span class="wine-place">Napa, California</span></li>
+            <li><span class="wine-name">La Serra Chianti Colli Senesi</span><span class="wine-place">Tuscany, Italy</span></li>
+            <li><span class="wine-name">House of Brown Red Blend</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Domaine de la Solitude Rouge</span><span class="wine-place">Rhône, France</span></li>
+            <li><span class="wine-name">Areyna Malbec Lujan de Cuyo</span><span class="wine-place">Argentina</span></li>
+            <li><span class="wine-name">House of Brown Cabernet Sauvignon</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Highway 12 Cabernet Sauvignon</span><span class="wine-place">California</span></li>
+            <li><span class="wine-name">Dama Wines Cabernet Sauvignon Cowgirl</span><span class="wine-place">Washington</span></li>
+          </ul>
+        </article>
+
+        <article class="wine-section wine-section--wide">
+          <div class="wine-section__kicker">Four 2 oz Pours</div>
+          <h3>Curated Flight Experiences</h3>
+          <p class="wine-section__note">Explore our menu through themed flights designed to make choosing your next favorite pour simple and fun.</p>
+          <div class="flight-grid">
+            <div class="flight-card">
+              <h4>Rosé All Day</h4>
+              <p>Gateway Vinho Verde<br>House of Brown<br>Bodegas Muga Rioja Rosado<br>Honoro Vera Rosé Jumilla</p>
+            </div>
+            <div class="flight-card">
+              <h4>Totally for Girls</h4>
+              <p>Graziano Chenin Blanc<br>Pike Road Wines Chardonnay<br>House of Brown Rosé<br>Areyna Malbec Lujan de Cuyo</p>
+            </div>
+            <div class="flight-card">
+              <h4>Crimson Collection</h4>
+              <p>Iconic Wines Sidekick Merlot<br>La Serra Chianti Colli Senesi<br>Château Grand Rousseau<br>Areyna Malbec Lujan de Cuyo</p>
+            </div>
+            <div class="flight-card">
+              <h4>House of Brown Experience</h4>
+              <p>HOB Sauvignon Blanc<br>HOB Chardonnay<br>HOB Red Blend<br>HOB Cabernet Sauvignon</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="wine-modal__footer">
+        <h3>Make Pour Decisions</h3>
+        <p>Our state-of-the-art self-pour wine machines allow guests to explore wines in 1 oz, 3 oz, or 6 oz pours. Ask your server or bartender to get started. Most selections from the machines are also available for retail purchase.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('wine-menu-modal');
+      if (!modal) return;
+      const openers = document.querySelectorAll('[data-open-wine-menu]');
+      const closers = modal.querySelectorAll('[data-close-wine-menu]');
+      let lastFocus = null;
+
+      function openModal() {
+        lastFocus = document.activeElement;
+        modal.hidden = false;
+        requestAnimationFrame(() => modal.classList.add('open'));
+        document.body.classList.add('wine-modal-open');
+        const closeBtn = modal.querySelector('.wine-modal__close');
+        if (closeBtn) closeBtn.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.classList.remove('wine-modal-open');
+        setTimeout(() => { modal.hidden = true; }, 300);
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      }
+
+      openers.forEach(btn => btn.addEventListener('click', openModal));
+      closers.forEach(btn => btn.addEventListener('click', closeModal));
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
   </script>
 
   <!-- Resy reservation modal -->
