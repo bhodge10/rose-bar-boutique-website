@@ -944,6 +944,32 @@
       flex-shrink: 0;
       opacity: 0.7;
     }
+    .wine-feature-icon--photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 6px;
+      border-color: rgba(201, 169, 110, 0.5);
+      overflow: hidden;
+      padding: 0;
+      opacity: 1;
+    }
+    .wine-feature-icon--photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    a.wine-feature-item {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.wine-feature-item:hover .wine-feature-icon--photo {
+      border-color: var(--gold);
+    }
+    a.wine-feature-item:hover h4 {
+      color: var(--gold);
+    }
     .wine-feature-item h4 {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -1422,15 +1448,15 @@
           <span class="section-label reveal">Our Story</span>
           <h2 class="section-heading reveal reveal-delay-1">A Passion Project <br>Built on <em>Love</em></h2>
           <div class="reveal reveal-delay-2">
-            <p>When husband-and-wife team Bob and Colleen Coppola dreamed up Rosé Boutique & Wine Bar, they imagined a place where their two passions could live under one roof — Bob's deep love of wine and artisan food, and Colleen's eye for fashion and beautiful things.</p>
-            <p>Nestled in the Loveland Station complex in Historic Downtown Loveland, Rosé opened its doors in 2024 and quickly became the neighborhood's go-to gathering spot. Bob personally handcrafts every charcuterie board to pair perfectly with the wines he's curated from vineyards around the world, while Colleen hand-selects each piece of clothing, jewelry, and giftware in the boutique.</p>
-            <p>Whether you're here for a relaxed wine flight after work, a girls' night browsing the boutique with a glass of rosé in hand, or a weekend date night with a beautiful board and a bottle — this is your place. Welcome to Rosé.</p>
+            <p>Rosé Boutique &amp; Wine Bar is proudly family-owned by Bob and his wife, Colleen, built from a shared love of great wine, meaningful connection, and creating a place where everyone feels welcome. What started as a dream to bring thoughtfully curated, small-production wines to Loveland has grown into a neighborhood gathering spot where wine is meant to be enjoyed — not overthought.</p>
+            <p>We believe in sip &amp; shop: enjoy a glass from our bar or self-pour wall while browsing our hand-picked boutique of gifts, apparel, glassware, and charcuterie boards. Every bottle, every item, every experience is chosen with care, so whether you're here for a quick pour or an evening with friends, you'll always discover something special.</p>
+            <p>Rosé is more than a wine bar — it's a reflection of our family, our community, and our passion for sharing beautiful things. Welcome in, stay awhile, and make yourself at home.</p>
           </div>
           <p class="story-signature reveal reveal-delay-3">— Bob &amp; Colleen Coppola</p>
         </div>
         <div class="story-visual reveal reveal-delay-2">
           <div class="story-img-wrapper">
-            <img class="story-img" src="images/colleen.jpg" alt="Colleen Coppola at Rosé Boutique &amp; Wine Bar">
+            <img class="story-img" src="images/bob-colleen.jpg" alt="Bob and Colleen Coppola toasting rosé at Rosé Boutique &amp; Wine Bar">
           </div>
           <div class="story-img-accent"></div>
           <div class="story-img-dot"></div>
@@ -1499,13 +1525,15 @@
           </div>
         </div>
         <div class="wine-visual reveal reveal-delay-2">
-          <div class="wine-feature-item">
-            <div class="wine-feature-icon">🍾</div>
+          <a class="wine-feature-item" href="images/rose-wine-cellar-webpage.html" aria-label="Explore our self-pour wine machine selections">
+            <div class="wine-feature-icon wine-feature-icon--photo">
+              <img src="images/wine-emotion.jpg" alt="Rosé Boutique self-pour wine machines under the 'Make pour decisions' neon sign" loading="lazy" />
+            </div>
             <div>
               <h4>Self-Pour Wine Machines</h4>
-              <p>Taste at your own pace with our 16-tap self-pouring stations. Choose your pour size and explore wines you might never have tried otherwise.</p>
+              <p>Designed for both casual sippers and wine enthusiasts, our self-pour machines allow you to taste a wide range of wines without the commitment of a full glass. Choose from tasting pours to explore different regions, varietals, and styles, or enjoy a full pour of your favorite selection. Each bottle is preserved using advanced technology, maintaining peak freshness and quality—making it easy to compare, learn, and discover what you love.</p>
             </div>
-          </div>
+          </a>
           <div class="wine-feature-item">
             <div class="wine-feature-icon">✈️</div>
             <div>
