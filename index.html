@@ -658,6 +658,9 @@
       gap: 2rem;
       margin-top: 3rem;
     }
+    .wine-stats--single {
+      grid-template-columns: minmax(0, 320px);
+    }
     .wine-stat {
       padding: 1.5rem;
       border: 1px solid rgba(201, 169, 110, 0.2);
@@ -875,6 +878,35 @@
       line-height: 1.65;
       font-weight: 300;
     }
+    .flight-card--featured {
+      position: relative;
+      background: linear-gradient(180deg, #fff 0%, #fbeded 100%);
+      border-color: var(--rose);
+      box-shadow: 0 8px 24px rgba(196, 137, 138, 0.18);
+    }
+    .flight-card__badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--wine);
+      color: var(--white);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .flight-card__desc {
+      font-style: italic;
+      color: var(--wine-deep);
+      font-size: 0.78rem !important;
+      margin: 0 0 0.85rem !important;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(196, 137, 138, 0.3);
+    }
+    .flight-card__pours { margin: 0; }
     .wine-modal__footer {
       margin-top: 2rem;
       padding: clamp(22px, 3vw, 36px);
@@ -898,9 +930,105 @@
       font-size: 0.95rem;
     }
     body.wine-modal-open { overflow: hidden; }
+
+    /* Menu tabs (Wine / Food) */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 0 0 2.5rem;
+      flex-wrap: wrap;
+    }
+    .menu-tab {
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--wine-deep);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 0;
+    }
+    .menu-tab:hover { background: rgba(201, 169, 110, 0.12); }
+    .menu-tab.active {
+      background: var(--wine);
+      color: var(--white);
+      border-color: var(--wine);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+
+    /* Food menu */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .food-card {
+      background: var(--white);
+      border: 1px solid rgba(196, 137, 138, 0.25);
+      border-radius: 6px;
+      padding: 1.4rem 1.2rem;
+    }
+    .food-card h4 {
+      font-family: var(--font-display);
+      color: var(--wine-deep);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin: 0 0 0.5rem;
+    }
+    .food-card p {
+      margin: 0 0 0.5rem;
+      color: var(--warm-gray);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .food-card p:last-child { margin: 0; }
+    .food-pairing {
+      font-style: italic;
+      font-size: 0.78rem !important;
+      color: var(--rose) !important;
+      border-top: 1px dashed rgba(196, 137, 138, 0.35);
+      padding-top: 0.55rem;
+      margin-top: 0.6rem !important;
+    }
+    .food-serve {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+      margin-left: 0.4rem;
+    }
+    .food-extras {
+      margin: 1.2rem 0 0;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      line-height: 1.65;
+    }
+
+    /* Clickable experience cards */
+    button.experience-card {
+      font: inherit;
+      text-align: left;
+      width: 100%;
+      cursor: pointer;
+      display: block;
+    }
+    button.experience-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
     @media (max-width: 860px) {
       .wine-modal__grid,
-      .flight-grid { grid-template-columns: 1fr; }
+      .flight-grid,
+      .food-grid { grid-template-columns: 1fr; }
       .wine-list li { grid-template-columns: 1fr; gap: 0.2rem; }
       .wine-place { text-align: left; }
     }
@@ -913,6 +1041,19 @@
     .wine-description strong {
       color: var(--gold-light);
       font-weight: 500;
+    }
+    .wine-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.92);
+      margin: 0;
+      line-height: 1.15;
+    }
+    .wine-tagline strong {
+      color: var(--gold);
+      font-weight: 400;
     }
     .wine-visual {
       display: flex;
@@ -1355,6 +1496,55 @@
       .event-card { flex-direction: column; gap: 1rem; }
       .event-date { text-align: left; }
     }
+
+    /* Sticky floating reserve button */
+    .sticky-reserve {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--wine);
+      color: var(--white);
+      padding: 0.95rem 1.6rem;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 12px 32px rgba(74, 28, 34, 0.35);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .sticky-reserve.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-reserve:hover {
+      background: var(--wine-deep);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(74, 28, 34, 0.45);
+    }
+    .sticky-reserve::before {
+      content: '🍷';
+      font-size: 1rem;
+      filter: saturate(0.85);
+    }
+    @media (max-width: 480px) {
+      .sticky-reserve {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.85rem 1.3rem;
+        font-size: 0.68rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1370,6 +1560,7 @@
         <li><a href="#story">Our Story</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#wine">Wine</a></li>
+        <li><a href="#" data-open-wine-menu="wine" aria-haspopup="dialog" aria-controls="wine-menu-modal">Menu</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#visit" class="nav-cta">Plan Your Visit</a></li>
         <li><a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar" target="_blank" rel="noopener" class="nav-cta">Make a Reservation</a></li>
@@ -1394,7 +1585,7 @@
         of Historic Downtown Loveland
       </p>
       <div class="hero-actions">
-        <a href="#visit" class="btn btn-primary">Plan Your Visit</a>
+        <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar" target="_blank" rel="noopener" class="btn btn-primary">Reserve a Table</a>
         <a href="#wine" class="btn btn-outline">Explore Our Wines</a>
       </div>
     </div>
@@ -1473,24 +1664,24 @@
         <h2 class="section-heading reveal reveal-delay-1">Three Passions, <em>One Place</em></h2>
       </div>
       <div class="experience-grid">
-        <div class="experience-card reveal">
+        <button type="button" class="experience-card reveal" data-open-wine-menu="wine" aria-haspopup="dialog" aria-controls="wine-menu-modal">
           <div class="card-number">01</div>
           <h3>The Wine Bar</h3>
           <p>Explore 55+ wines from local and international vineyards. Try our unique self-pouring wine machines with 16 rotating selections, order a curated flight, or settle in with a glass of your new favorite. We pour beer on tap, too.</p>
           <span class="card-detail">View Wine Menu →</span>
-        </div>
+        </button>
         <div class="experience-card reveal reveal-delay-1">
           <div class="card-number">02</div>
           <h3>The Boutique</h3>
           <p>Colleen personally curates every piece — from contemporary clothing and jewelry to unique gifts and accessories. Browse the racks with a glass in hand and discover something you didn't know you needed. It's shopping the way it should be.</p>
-          <span class="card-detail">Shop Online →</span>
+          <span class="card-detail">Visit the Boutique →</span>
         </div>
-        <div class="experience-card reveal reveal-delay-2">
+        <button type="button" class="experience-card reveal reveal-delay-2" data-open-wine-menu="food" aria-haspopup="dialog" aria-controls="wine-menu-modal">
           <div class="card-number">03</div>
           <h3>The Charcuterie</h3>
           <p>Bob handcrafts every board with care — pairing artisan cheeses, cured meats, and seasonal accompaniments designed to complement our wine selection. From a shareable spread to an intimate baby board for two, every bite is intentional.</p>
           <span class="card-detail">See Food Menu →</span>
-        </div>
+        </button>
       </div>
     </div>
   </section>
@@ -1502,26 +1693,12 @@
         <div>
           <span class="section-label reveal" style="color:var(--gold);">The Wine</span>
           <h2 class="section-heading reveal reveal-delay-1" style="color:var(--white);">Pour, Taste, <em style='color:var(--rose-light)'>Discover</em></h2>
-          <p class="wine-description reveal reveal-delay-2">
-            Our collection spans <strong>55+ wines</strong> from carefully selected local and international vineyards — each chosen to offer something memorable. Whether you prefer a crisp white, a bold red, or a delicate rosé, our knowledgeable staff will guide you to your perfect pour.
-          </p>
-          <div class="wine-stats reveal reveal-delay-3">
+          <p class="wine-tagline reveal reveal-delay-2"><strong>55+</strong> Wines by the Glass</p>
+          <div class="wine-stats wine-stats--single reveal reveal-delay-3">
             <button type="button" class="wine-stat" data-open-wine-menu aria-haspopup="dialog" aria-controls="wine-menu-modal">
               <div class="wine-stat-number">55+</div>
               <div class="wine-stat-label">Wines on menu</div>
             </button>
-            <div class="wine-stat">
-              <div class="wine-stat-number">16</div>
-              <div class="wine-stat-label">Self-pour selections</div>
-            </div>
-            <div class="wine-stat">
-              <div class="wine-stat-number">4</div>
-              <div class="wine-stat-label">Wine flight options</div>
-            </div>
-            <div class="wine-stat">
-              <div class="wine-stat-number">∞</div>
-              <div class="wine-stat-label">Reasons to return</div>
-            </div>
           </div>
         </div>
         <div class="wine-visual reveal reveal-delay-2">
@@ -1538,7 +1715,7 @@
             <div class="wine-feature-icon">✈️</div>
             <div>
               <h4>Curated Flights</h4>
-              <p>Let us guide your palate with themed wine flights — including our beloved "For the Girls" flight. Each flight is an adventure in a glass.</p>
+              <p>Let us guide your palate with themed wine flights — including our beloved <em>Totally for Girls</em>, a celebration of women in wine featuring four selections from female winemakers and winery owners shaping the industry with passion and purpose.</p>
             </div>
           </div>
           <div class="wine-feature-item">
@@ -1810,12 +1987,19 @@
     });
   </script>
 
-  <!-- Wine menu modal -->
+  <!-- Wine & Food menu modal -->
   <div class="wine-modal" id="wine-menu-modal" role="dialog" aria-modal="true" aria-labelledby="wine-menu-heading" hidden>
     <div class="wine-modal__panel">
-      <button type="button" class="wine-modal__close" aria-label="Close wine menu" data-close-wine-menu>×</button>
+      <button type="button" class="wine-modal__close" aria-label="Close menu" data-close-wine-menu>×</button>
       <div class="wine-modal__eyebrow">Rosé Boutique &amp; Wine Bar</div>
-      <h2 class="wine-modal__heading" id="wine-menu-heading">Wine Cellar <em>Selection</em></h2>
+      <h2 class="wine-modal__heading" id="wine-menu-heading">Our <em>Menu</em></h2>
+
+      <div class="menu-tabs" role="tablist" aria-label="Menu sections">
+        <button type="button" class="menu-tab active" data-menu-tab="wine" role="tab" aria-selected="true" aria-controls="menu-panel-wine">Wine Menu</button>
+        <button type="button" class="menu-tab" data-menu-tab="food" role="tab" aria-selected="false" aria-controls="menu-panel-food">Food Menu</button>
+      </div>
+
+      <div class="menu-panel active" id="menu-panel-wine" role="tabpanel" aria-labelledby="menu-tab-wine">
       <p class="wine-modal__intro">A curated collection of sparkling, white, rosé, orange, and red wines selected for balance, approachability, and a sense of place.</p>
 
       <div class="wine-modal__grid">
@@ -1900,9 +2084,11 @@
               <h4>Rosé All Day</h4>
               <p>Gateway Vinho Verde<br>House of Brown<br>Bodegas Muga Rioja Rosado<br>Honoro Vera Rosé Jumilla</p>
             </div>
-            <div class="flight-card">
+            <div class="flight-card flight-card--featured">
+              <span class="flight-card__badge">Beloved</span>
               <h4>Totally for Girls</h4>
-              <p>Graziano Chenin Blanc<br>Pike Road Wines Chardonnay<br>House of Brown Rosé<br>Areyna Malbec Lujan de Cuyo</p>
+              <p class="flight-card__desc">A celebration of women in wine — four beautifully crafted selections from female winemakers and winery owners who are shaping the industry with passion and purpose.</p>
+              <p class="flight-card__pours">Graziano Chenin Blanc<br>Pike Road Wines Chardonnay<br>House of Brown Rosé<br>Areyna Malbec Lujan de Cuyo</p>
             </div>
             <div class="flight-card">
               <h4>Crimson Collection</h4>
@@ -1920,6 +2106,58 @@
         <h3>Make Pour Decisions</h3>
         <p>Our state-of-the-art self-pour wine machines allow guests to explore wines in 1 oz, 3 oz, or 6 oz pours. Ask your server or bartender to get started. Most selections from the machines are also available for retail purchase.</p>
       </div>
+      </div><!-- /menu-panel-wine -->
+
+      <div class="menu-panel" id="menu-panel-food" role="tabpanel" aria-labelledby="menu-tab-food" hidden>
+        <p class="wine-modal__intro">Charcuterie boards, whipped ricotta dips, and shareable plates designed to complement every pour. Each dip arrives with a suggested wine pairing.</p>
+
+        <div class="wine-modal__grid">
+          <article class="wine-section wine-section--wide">
+            <div class="wine-section__kicker">Small Plates &amp; Boards</div>
+            <h3>Charcuterie</h3>
+            <p class="wine-section__note">Local &amp; imported cured meats and cheeses with rotating accompaniments. Served with toasted focaccia, herbs, and pecorino.</p>
+            <ul class="wine-list">
+              <li>
+                <span class="wine-name">Baby Charc <span class="food-serve">serves 2–3</span></span>
+                <span class="wine-place">$19</span>
+              </li>
+              <li>
+                <span class="wine-name">Great Charc <span class="food-serve">serves 4–6</span></span>
+                <span class="wine-place">$32</span>
+              </li>
+            </ul>
+            <p class="food-extras">Gluten-free options available · Add Olive Blend $5 · Add Honeycomb $5</p>
+          </article>
+
+          <article class="wine-section wine-section--wide">
+            <div class="wine-section__kicker">Spreadable · Shareable · Pairable</div>
+            <h3>Whipped Ricotta Dips</h3>
+            <p class="wine-section__note">Each served with toasted focaccia. <strong>$12 single · $22 double.</strong></p>
+            <div class="food-grid">
+              <div class="food-card">
+                <h4>Herbed Honey</h4>
+                <p>EVOO, lemon, sea salt, pepper, honey, rosemary, thyme, crushed almonds</p>
+                <p class="food-pairing">Pairing: Butterfield Station Chardonnay</p>
+              </div>
+              <div class="food-card">
+                <h4>Basil &amp; Balsamic</h4>
+                <p>EVOO, lemon, sea salt, pepper, basil, garlic, balsamic, crushed pistachios</p>
+                <p class="food-pairing">Pairing: La Serra Chianti Colli Senesi</p>
+              </div>
+              <div class="food-card">
+                <h4>Sweet Heat</h4>
+                <p>EVOO, sea salt, pepper, Mike's Hot Honey®, red pepper flakes, crushed almonds</p>
+                <p class="food-pairing">Pairing: Massey Dacta Sauvignon Blanc</p>
+              </div>
+              <div class="food-card">
+                <h4>Pesto Piccante</h4>
+                <p>EVOO, sea salt, pepper, pesto, chili oil, pine nuts</p>
+                <p class="food-pairing">Pairing: Highway 12 Cabernet Sauvignon</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div><!-- /menu-panel-food -->
     </div>
   </div>
 
@@ -1929,13 +2167,32 @@
       if (!modal) return;
       const openers = document.querySelectorAll('[data-open-wine-menu]');
       const closers = modal.querySelectorAll('[data-close-wine-menu]');
+      const tabs = modal.querySelectorAll('.menu-tab');
+      const panels = modal.querySelectorAll('.menu-panel');
+      const panelScroller = modal.querySelector('.wine-modal__panel');
       let lastFocus = null;
 
-      function openModal() {
+      function activateTab(name) {
+        tabs.forEach(t => {
+          const isActive = t.dataset.menuTab === name;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+        panels.forEach(p => {
+          const isActive = p.id === 'menu-panel-' + name;
+          p.classList.toggle('active', isActive);
+          p.hidden = !isActive;
+        });
+        if (panelScroller) panelScroller.scrollTop = 0;
+      }
+
+      function openModal(tab) {
         lastFocus = document.activeElement;
         modal.hidden = false;
         requestAnimationFrame(() => modal.classList.add('open'));
         document.body.classList.add('wine-modal-open');
+        document.querySelector('.nav-links')?.classList.remove('open');
+        activateTab(tab === 'food' ? 'food' : 'wine');
         const closeBtn = modal.querySelector('.wine-modal__close');
         if (closeBtn) closeBtn.focus();
       }
@@ -1946,14 +2203,23 @@
         if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
       }
 
-      openers.forEach(btn => btn.addEventListener('click', openModal));
+      openers.forEach(btn => btn.addEventListener('click', () => {
+        openModal(btn.getAttribute('data-open-wine-menu') || 'wine');
+      }));
       closers.forEach(btn => btn.addEventListener('click', closeModal));
+      tabs.forEach(tab => tab.addEventListener('click', () => activateTab(tab.dataset.menuTab)));
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
       });
     })();
   </script>
+
+  <!-- Sticky floating reserve button -->
+  <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar"
+     target="_blank" rel="noopener"
+     class="sticky-reserve"
+     aria-label="Reserve a table">Reserve a Table</a>
 
   <!-- Resy reservation modal -->
   <script src="https://widgets.resy.com/embed.js"></script>
@@ -1965,6 +2231,25 @@
           e.preventDefault();
           resyWidget.openModal({"venueId": 95040, "apiKey": "L8GaMnHU8EZo3So47rkiDAemdwtMhR4v", "replace": "true"});
         }, false);
+      }
+
+      // Reveal the sticky reserve button after the user scrolls past the hero
+      var sticky = document.querySelector('.sticky-reserve');
+      if (sticky) {
+        var threshold = Math.min(window.innerHeight * 0.6, 600);
+        var toggleSticky = function() {
+          if (window.scrollY > threshold) {
+            sticky.classList.add('visible');
+          } else {
+            sticky.classList.remove('visible');
+          }
+        };
+        toggleSticky();
+        window.addEventListener('scroll', toggleSticky, { passive: true });
+        window.addEventListener('resize', function() {
+          threshold = Math.min(window.innerHeight * 0.6, 600);
+          toggleSticky();
+        }, { passive: true });
       }
     }, false);
   </script>
