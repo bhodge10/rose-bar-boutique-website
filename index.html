@@ -1262,6 +1262,77 @@
       padding: 0.3rem 0.75rem;
       margin-top: 0.75rem;
     }
+    /* Featured events */
+    .events-featured {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .event-featured {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 2.5rem;
+      background: var(--cream);
+      border: 1px solid rgba(196, 137, 138, 0.12);
+    }
+    .event-featured--reverse { grid-template-columns: 1fr minmax(0, 0.85fr); }
+    .event-featured--reverse .event-featured__img { order: 2; }
+    .event-featured__img {
+      width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 20px 60px rgba(114, 47, 55, 0.12);
+    }
+    .event-featured__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .event-featured__date {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .event-featured h4 {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 400;
+      color: var(--wine-deep);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .event-featured p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--warm-gray);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .event-featured__details {
+      list-style: none;
+      margin: 0 0 1.75rem;
+      padding: 0;
+    }
+    .event-featured__details li {
+      font-size: 0.88rem;
+      color: var(--wine-deep);
+      font-weight: 400;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(196, 137, 138, 0.12);
+    }
+    .event-featured__details li span {
+      color: var(--warm-gray);
+      font-weight: 300;
+      margin-left: 0.4rem;
+    }
+    .event-featured .btn-primary { color: var(--wine-deep); }
 
     /* ===== HOURS OF OPERATION ===== */
     .hours-section {
@@ -1575,6 +1646,14 @@
       .events-grid {
         grid-template-columns: 1fr;
       }
+      .event-featured,
+      .event-featured--reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.75rem;
+      }
+      .event-featured__img { max-width: 360px; margin: 0 auto; }
+      .event-featured--reverse .event-featured__img { order: -1; }
       .footer-top {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1878,51 +1957,47 @@
           From themed tastings to seasonal celebrations, there's always something happening at Rosé. Follow us on Instagram for the latest.
         </p>
       </div>
-      <div class="events-grid">
-        <div class="event-card reveal">
-          <div class="event-date">
-            <span class="month">Sat · May</span>
-            <span class="day">2</span>
+      <div class="events-featured">
+      <div class="event-featured reveal">
+        <img class="event-featured__img" src="images/late-night-loveland.jpg" alt="Late Night in Loveland flyer — Friday, June 12, 5–8 PM in Downtown Loveland, OH" loading="lazy">
+        <div class="event-featured__info">
+          <div class="event-featured__meta">
+            <span class="event-featured__date">Friday · June 12</span>
+            <span class="event-tag" style="margin-top:0;">Late Night in Loveland</span>
           </div>
-          <div class="event-info">
-            <h4>Run for the Rosé — Kentucky Derby Party</h4>
-            <p>4:00 PM – 10:00 PM. Live music, drink specials, boutique deals, and Bourbon meatballs.</p>
-            <span class="event-tag">Derby Party</span>
-          </div>
+          <h4>Late Night in Loveland — Sip, Shop &amp; Support Small Businesses</h4>
+          <p>
+            Downtown Loveland stays open late! Join us from 5–8 PM as retail shops keep their doors open for an evening of shopping, drinks, and snacks throughout. All are welcome — come sip, shop, and support local small businesses with specials and sales all night long.
+          </p>
+          <ul class="event-featured__details">
+            <li>When<span>Friday, June 12 · 5:00 – 8:00 PM</span></li>
+            <li>Where<span>Downtown Loveland, OH</span></li>
+            <li>Details<span>Specials &amp; sales · see each shop for specifics</span></li>
+          </ul>
         </div>
-        <div class="event-card reveal reveal-delay-1">
-          <div class="event-date">
-            <span class="month">Thur · May</span>
-            <span class="day">7</span>
+      </div>
+      <div class="event-featured event-featured--reverse reveal">
+        <img class="event-featured__img" src="images/euchre-tournament.jpg" alt="Do It For Jack Euchre Tournament flyer — Sunday, June 28 at Rosé Boutique &amp; Wine Bar" loading="lazy">
+        <div class="event-featured__info">
+          <div class="event-featured__meta">
+            <span class="event-featured__date">Sunday · June 28</span>
+            <span class="event-tag" style="margin-top:0;">Charity Tournament</span>
           </div>
-          <div class="event-info">
-            <h4>Wine Club Pick-Up Day</h4>
-            <p>4:00 PM – 9:00 PM. Free wine flights for wine club members.</p>
-            <span class="event-tag">Wine Club</span>
-          </div>
+          <h4>Do It For Jack Euchre Tournament</h4>
+          <p>
+            Join us for an afternoon of friendly competition, great food, and community support. For just $25 per person you'll receive entry into the tournament plus charcuterie and light bites while you play. The Top 3 finishers take home prizes — and best of all, 100% of every entry fee is donated directly to the Do It For Jack Foundation, dedicated to youth mental health awareness, education, and suicide prevention.
+          </p>
+          <p>
+            Whether you're a seasoned Euchre player or just looking for a fun way to support a meaningful cause, we'd love to have you join us. Gather your friends, shuffle up, and help us make a difference — one hand at a time. ♠️♥️♦️♣️🍷
+          </p>
+          <ul class="event-featured__details">
+            <li>Entry<span>$25 per person · includes charcuterie &amp; light bites</span></li>
+            <li>Check-in<span>1:30 PM · games start promptly at 2:00 PM</span></li>
+            <li>Benefiting<span>The Jack Quehl Foundation (Do It For Jack)</span></li>
+          </ul>
+          <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar/events/do-it-for-jack-euchre-tournament-2026-06-28?date=2026-06-03&amp;seats=2" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
         </div>
-        <div class="event-card reveal reveal-delay-2">
-          <div class="event-date">
-            <span class="month">Sun · May</span>
-            <span class="day">10</span>
-          </div>
-          <div class="event-info">
-            <h4>Mom's Day at Rosé: Sip, Shop &amp; Celebrate</h4>
-            <p>12:00 PM – 5:00 PM. Stay tuned for specials!</p>
-            <span class="event-tag">Mother's Day</span>
-          </div>
-        </div>
-        <div class="event-card reveal reveal-delay-3">
-          <div class="event-date">
-            <span class="month">Mon · May</span>
-            <span class="day">11</span>
-          </div>
-          <div class="event-info">
-            <h4>Sip &amp; Pour for Hope — Wine Tasting</h4>
-            <p>7:00 PM – 9:00 PM. Proceeds support the Ben Morrison Fund.</p>
-            <span class="event-tag">Charity Tasting</span>
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </section>
