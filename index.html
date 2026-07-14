@@ -1333,6 +1333,37 @@
       margin-left: 0.4rem;
     }
     .event-featured .btn-primary { color: var(--wine-deep); }
+    .event-featured__resy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+    }
+    .event-featured__resy img {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(255, 69, 44, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-featured__resy:hover img {
+      transform: scale(1.08);
+      box-shadow: 0 10px 26px rgba(255, 69, 44, 0.35);
+    }
+    .event-featured__resy span {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--wine-deep);
+      border-bottom: 1px solid var(--rose-light);
+      padding-bottom: 0.2rem;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .event-featured__resy:hover span {
+      color: var(--wine);
+      border-color: var(--wine);
+    }
 
     /* ===== HOURS OF OPERATION ===== */
     .hours-section {
@@ -1959,43 +1990,29 @@
       </div>
       <div class="events-featured">
       <div class="event-featured reveal">
-        <img class="event-featured__img" src="images/late-night-loveland.jpg" alt="Late Night in Loveland flyer — Friday, June 12, 5–8 PM in Downtown Loveland, OH" loading="lazy">
+        <img class="event-featured__img" src="images/tommasi-wine-tasting.jpg" alt="An Evening with Tommasi Estates flyer — Monday, August 10 at 7:00 PM, $50 per person, at Rosé Boutique &amp; Wine Bar" loading="lazy">
         <div class="event-featured__info">
           <div class="event-featured__meta">
-            <span class="event-featured__date">Friday · June 12</span>
-            <span class="event-tag" style="margin-top:0;">Late Night in Loveland</span>
+            <span class="event-featured__date">Monday · August 10</span>
+            <span class="event-tag" style="margin-top:0;">Wine Tasting</span>
           </div>
-          <h4>Late Night in Loveland — Sip, Shop &amp; Support Small Businesses</h4>
+          <h4>Tommasi Family Estates Wine Tasting with Paride Nardotto</h4>
           <p>
-            Downtown Loveland stays open late! Join us from 5–8 PM as retail shops keep their doors open for an evening of shopping, drinks, and snacks throughout. All are welcome — come sip, shop, and support local small businesses with specials and sales all night long.
+            Join us for an unforgettable evening celebrating the wines of Tommasi Family Estates, one of Italy's most iconic and respected family-owned wineries. We're honored to welcome Paride Nardotto, U.S. Brand Manager for Tommasi Estates, who will lead guests through a guided tasting of exceptional wines while sharing the history, passion, and traditions that have made Tommasi a benchmark for Italian winemaking for more than a century.
+          </p>
+          <p>
+            Each wine will be thoughtfully paired with a selection of artisanal charcuterie — an immersive experience perfect for seasoned enthusiasts and newcomers alike. Guests will also have the opportunity to purchase featured Tommasi wines at special event-only pricing. Space is limited, and advance reservations are highly recommended. Taste Italy. Meet the Expert. Experience Tommasi. 🇮🇹🍷
           </p>
           <ul class="event-featured__details">
-            <li>When<span>Friday, June 12 · 5:00 – 8:00 PM</span></li>
-            <li>Where<span>Downtown Loveland, OH</span></li>
-            <li>Details<span>Specials &amp; sales · see each shop for specifics</span></li>
+            <li>When<span>Monday, August 10 · 7:00 PM</span></li>
+            <li>Where<span>Rosé Boutique &amp; Wine Bar · Downtown Loveland, OH</span></li>
+            <li>Tickets<span>$50 per person · guided tasting &amp; charcuterie pairing</span></li>
+            <li>Refunds<span>Fully refundable up to 5 days before the event</span></li>
           </ul>
-        </div>
-      </div>
-      <div class="event-featured event-featured--reverse reveal">
-        <img class="event-featured__img" src="images/euchre-tournament.jpg" alt="Do It For Jack Euchre Tournament flyer — Sunday, June 28 at Rosé Boutique &amp; Wine Bar" loading="lazy">
-        <div class="event-featured__info">
-          <div class="event-featured__meta">
-            <span class="event-featured__date">Sunday · June 28</span>
-            <span class="event-tag" style="margin-top:0;">Charity Tournament</span>
-          </div>
-          <h4>Do It For Jack Euchre Tournament</h4>
-          <p>
-            Join us for an afternoon of friendly competition, great food, and community support. For just $25 per person you'll receive entry into the tournament plus charcuterie and light bites while you play. The Top 3 finishers take home prizes — and best of all, 100% of every entry fee is donated directly to the Do It For Jack Foundation, dedicated to youth mental health awareness, education, and suicide prevention.
-          </p>
-          <p>
-            Whether you're a seasoned Euchre player or just looking for a fun way to support a meaningful cause, we'd love to have you join us. Gather your friends, shuffle up, and help us make a difference — one hand at a time. ♠️♥️♦️♣️🍷
-          </p>
-          <ul class="event-featured__details">
-            <li>Entry<span>$25 per person · includes charcuterie &amp; light bites</span></li>
-            <li>Check-in<span>1:30 PM · games start promptly at 2:00 PM</span></li>
-            <li>Benefiting<span>The Jack Quehl Foundation (Do It For Jack)</span></li>
-          </ul>
-          <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar/events/do-it-for-jack-euchre-tournament-2026-06-28?date=2026-06-03&amp;seats=2" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
+          <a href="https://resy.com/cities/loveland-oh-oh/venues/rose-boutique-and-wine-bar/events/wine-tasting-tommasi-family-wines-2026-08-10/preview/95b24e78-6eca-445f-beb7-2fe58ca1511a?date=2026-07-08&amp;seats=2" target="_blank" rel="noopener" class="event-featured__resy">
+            <img src="images/resy-logo.jpg" alt="Resy logo" width="52" height="52">
+            <span>Reserve Your Spot</span>
+          </a>
         </div>
       </div>
       </div>
